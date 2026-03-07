@@ -1,0 +1,28 @@
+from typing import List
+
+"""
+[EASY] TWO SUM
+https://leetcode.com/problems/two-sum/
+
+Date: 7th March 2026
+Author: Diya Ramesh
+
+Time: O(N) (Worst case)
+    - where N = len(nums)
+    - looping through nums
+Space: O(N) (Worst case)
+    - where N = len(nums)
+    - max size of nums
+"""  
+
+def twoSum(nums: List[int], target: int) -> List[int]:
+    nums_dict = {}
+    for i in range(len(nums)):
+    
+        if nums_dict.get(nums[i]) is not None:
+            return [nums_dict.get(nums[i]), i]
+        
+        # important to put this last
+        # otherwise if target is div by 2 and nums[i] is 
+        # target/2, will return [i, i]
+        nums_dict[target - nums[i]] = i
