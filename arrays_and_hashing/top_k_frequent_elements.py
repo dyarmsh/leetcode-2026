@@ -23,8 +23,9 @@ def topKFrequent(nums: List[int], k: int) -> List[int]:
     for num in nums:  # O(n)
         frequencies[num] += 1
 
+    # bucket sort where each index+1 == frequency of element
+    # each element at index => array of numbers occuring index+1 times
     counts = [[] for _ in range(len(nums))]
-
     for num, freq in frequencies.items(): # O(n)
         counts[freq - 1].append(num)
     
