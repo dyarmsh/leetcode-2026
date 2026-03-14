@@ -1,32 +1,42 @@
 """
-[MEDIUM] 3SUM
+[MEDIUM] 3Sum
 https://leetcode.com/problems/3sum/
 
-Date: 12th March 2026
+Date: 14th March 2026
 Author: Diya Ramesh
 
-Time:
-Space: 
+Time: O(n^2)
+    - where n = len(nums)
+Space: O(n)
+    - where n = len(nums)
 """
+from typing import List
 
-def threeSum(self, nums: list[int]) -> list[list[int]]:
-    nums.sort()
-    print(nums)
+def threeSum(nums: List[int]) -> List[List[int]]:
+    
+    nums.sort() # O(nlog(n))
 
-    fixed = 0
-    left = 1
-    right = len(nums) - 1
+    valid_triplets = []
 
-    lst = []
-    for i in range(len(nums)):
-        while left < right:
-            # print("here1!", [nums[fixed], nums[left], nums[right]])
-            if nums[fixed] + nums[left] + nums[right] == 0 and [nums[fixed], nums[left], nums[right]] not in lst:
-                # print("here2!", [nums[fixed], nums[left], nums[right]])
-                lst.append([nums[fixed], nums[left], nums[right]])
-            
-            left += 1
-            #right -= 1
-        fixed += 1
-        left = fixed + 1
-        right = len(nums) - 1
+    for f in range(len(nums)): # O(n)
+        if nums[f] > 0:
+            break
+
+        if f != 0 and nums[f] == nums[f-1]:
+            continue
+        else:
+            l = f + 1
+            r = len(nums)-1
+
+            while l < r: # worse case: O(n) 
+                if nums[f] + nums[l] + nums[r] == 0:
+                    valid_triplets.append([nums[l], nums[f], nums[r]])
+                    l += 1
+                    while l < r and nums[l] == nums[l-1]:
+                        l += 1
+                elif nums[f] + nums[l] + nums[r] < 0:
+                    l += 1
+                elif nums[f] + nums[l] + nums[r] > 0:
+                    r -= 1
+
+    return valid_triplets
