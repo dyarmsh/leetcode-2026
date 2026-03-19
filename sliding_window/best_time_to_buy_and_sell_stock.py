@@ -16,6 +16,8 @@ Space: O(1)
 """
 
 def maxProfit(prices: List[int]) -> int:
+
+    #### SOLUTION 1: TWO POINTERS / SLIDING WINDOW ####
     buy = 0
     sell = 1
 
@@ -30,4 +32,15 @@ def maxProfit(prices: List[int]) -> int:
 
 
     return max_profit
+
+
+     #### SOLUTION 2 ####
+    lowest_price = prices[0]
+    best_profit = 0
+
+    for i in range(len(prices)):
+        lowest_price = min(prices[i], lowest_price)
+        best_profit = max(best_profit, prices[i] - lowest_price)
+    
+    return best_profit
         
