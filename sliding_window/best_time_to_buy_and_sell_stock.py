@@ -38,9 +38,9 @@ def maxProfit(prices: List[int]) -> int:
     lowest_price = prices[0]
     best_profit = 0
 
-    for i in range(len(prices)):
-        lowest_price = min(prices[i], lowest_price)
-        best_profit = max(best_profit, prices[i] - lowest_price)
+    for p in prices[1:]:
+        lowest_price = min(p, lowest_price)
+        best_profit = max(best_profit, p - lowest_price)
     
     return best_profit
         
