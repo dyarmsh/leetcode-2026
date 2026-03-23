@@ -22,21 +22,18 @@ def lengthOfLongestSubstring(s: str) -> int:
 
     for r in range(len(s)):
         if chars_map.get(s[r]) is not None:
-            print(s[r])
             l = max(chars_map[s[r]] + 1, l)
-        
         chars_map[s[r]] = r
         longest = max(longest, r-l+1)
     return longest
     ###
-    
+
     chars_map = {}
     l = 0
     longest = 0
 
     for r in range(len(s)):
         if chars_map.get(s[r]) is not None:
-            print(s[r])
             l = chars_map[s[r]] + 1
             chars_map[s[r]] = r
         
