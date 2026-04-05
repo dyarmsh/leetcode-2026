@@ -1,8 +1,8 @@
 """
 [EASY] VALID PARENTHESES
-https://leetcode.com/problems/container-with-most-water/
+https://leetcode.com/problems/valid-parentheses/
 
-Date: 17th March 2026
+Date: 5th Apr 2026
 Author: Diya Ramesh
 
 Time: O(n)
