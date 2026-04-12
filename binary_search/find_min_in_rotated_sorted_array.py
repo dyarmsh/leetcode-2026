@@ -21,9 +21,11 @@ def findMin(nums: List[int]) -> int:
     while lo < hi:
         mid = (hi - lo) // 2 + lo
 
-        if nums[mid] > nums[hi]: # look  right
+        if nums[mid] > nums[hi]: # look right
             lo = mid + 1
         else:
             hi = mid
 
     return nums[lo]
+
+print(findMin([4,5,6,7,8,1]))
