@@ -1,7 +1,7 @@
 from typing import Optional
 
 """
-[MEDIUM] REMOVE NTH NODE FROM END OF LINKED LIST
+[MEDIUM] CYCLE DETECTION
 https://neetcode.io/problems/remove-node-from-end-of-linked-list/
 
 Date: 15th Apr 2026
